@@ -1,8 +1,8 @@
 const createSketchArea = (numberOfBoxes) => {
     let sketchArea = document.querySelector(".sketch-area");
-    let boxCountButton = document.querySelector(".controls > button");
+    // let boxCountButton = document.querySelector(".controls > button");
 
-    boxCountButton.textContent = `${getBoxCountEachWays(numberOfBoxes) ** 2} Blocks`;
+    // boxCountButton.textContent = `${getBoxCountEachWays(numberOfBoxes) ** 2} Blocks`;
 
     for(let i = 0; i < getBoxCountEachWays(numberOfBoxes) **2; i++) {
         let box = document.createElement("div");
