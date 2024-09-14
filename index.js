@@ -1,7 +1,8 @@
 const gameBoard = document.querySelector(".game-board");
 const score = document.querySelector(".score span");
 
-let currentInput = "w";
+const restartGame = document.querySelector(".restart-game")
+let currentInput = "0";
 let viper;
 let viperFood;
 let width = 20;
@@ -85,9 +86,9 @@ setInterval(() => {
         score.textContent = `${Number(score.textContent) + 1}`;
     }
     
-    if (viperHead[0] == 0 || viperHead[1] == 19) {
-        alert("stop")
-    }
+    // if (viperHead[0] == 0 || viperHead[1] == 19) {
+    //     alert("stop")
+    // }
 
     if (currentInput == "w") {
 
@@ -125,6 +126,14 @@ setInterval(() => {
             ...viper
         ]
         viper.pop();
+    } else if (currentInput == "0") {
+        viper = [ 
+            [
+                Number(viperHeadCoordinates[0]), Number(viperHeadCoordinates[1])
+            ],
+            ...viper
+        ]
+        viper.pop();
     }
 
     lastLocation = viper[viper.length - 1];
@@ -142,4 +151,8 @@ document.addEventListener("keydown", (event) => {
     } else if (event.key == "d" || event.key == "ArrowRight") {
         currentInput = "d";
     }
+})
+
+restartGame.addEventListener("click", () => {
+    location.reload()
 })
