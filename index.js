@@ -154,5 +154,5 @@ document.addEventListener("keydown", (event) => {
 })
 
 restartGame.addEventListener("click", () => {
-    location.reload()
+    location.reload();
 })
