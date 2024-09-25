@@ -65,7 +65,7 @@ const paintFood = () => {
 }
 
 paintFood();
-viper = [generateArrayOfTwoRandomInt(), generateArrayOfTwoRandomInt()];
+viper = [generateArrayOfTwoRandomInt()];
 
 setInterval(() => {
     
@@ -154,5 +154,5 @@ document.addEventListener("keydown", (event) => {
 })
 
 restartGame.addEventListener("click", () => {
-    location.reload();
+    location.reload()
 })
