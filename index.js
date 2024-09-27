@@ -84,6 +84,8 @@ const checkIfFoodPresent = (viperHead, viperFood) => {
     return false;
 }
 
+// const stopGameIfCollisionOccurs 
+
 paintFood();
 viper = [generateArrayOfTwoRandomInt()];
 
@@ -98,6 +100,10 @@ const interval = setInterval(() => {
     }
     
     if (currentInput == input.up) {
+        if (Number(viperHeadCoordinates[1]) == 0) {
+            clearInterval(interval);
+            return
+        }
 
         viper = [ 
             [ 
@@ -107,6 +113,12 @@ const interval = setInterval(() => {
         ]
         viper.pop();
     } else if (currentInput == input.left) {
+        if (Number(viperHeadCoordinates[0]) == 0) {
+            clearInterval(interval);
+            return
+        }
+
+        
         viper = [ 
             [ 
                 Number(viperHeadCoordinates[0]) - 1, Number(viperHeadCoordinates[1])
@@ -116,6 +128,12 @@ const interval = setInterval(() => {
         viper.pop();
 
     } else if (currentInput == input.down) {
+        if (Number(viperHeadCoordinates[1]) == 19) {
+            clearInterval(interval);
+            return
+        }
+
+        
         viper = [ 
             [ 
                 Number(viperHeadCoordinates[0]), Number(viperHeadCoordinates[1]) + 1
@@ -124,6 +142,12 @@ const interval = setInterval(() => {
         ]
         viper.pop();
     } else if (currentInput == input.right) {
+        if (Number(viperHeadCoordinates[0]) == 19) {
+            clearInterval(interval);
+            return
+        }
+
+
         viper = [ 
             [
                 Number(viperHeadCoordinates[0]) + 1, Number(viperHeadCoordinates[1])
@@ -145,10 +169,10 @@ const interval = setInterval(() => {
     console.log(viperHeadCoordinates)
 
     lastLocation = viper[viper.length - 1];
-    if (viperHeadCoordinates[0] < 0 || viperHeadCoordinates[1] < 0 || viperHeadCoordinates[0] > 19 || viperHeadCoordinates[1] > 19) {
-        console.log("end");
-        clearInterval(interval);
-    }
+    // if (viperHeadCoordinates[0] < 0 || viperHeadCoordinates[1] < 0 || viperHeadCoordinates[0] > 19 || viperHeadCoordinates[1] > 19) {
+    //     console.log("end");
+    //     clearInterval(interval);
+    // }
 
     removeViperTrail(viper);
     paintViper(viper);
