@@ -1,18 +1,23 @@
+import { colorScheme } from "./data/colors.js";
+
 const gameBoard = document.querySelector(".game-board");
 const score = document.querySelector(".score span");
 
 const restartGame = document.querySelector(".restart-game")
-let currentInput = "0";
+
+let currentInput = null;
+let inputOptions = {
+    up: "w",
+    down: "s",
+    left: "a",
+    right: "d",
+    none: null
+};
+
 let viper;
 let viperFood;
 let width = 20;
 let lastLocation = [0, 0];
-
-let colorScheme = {
-    viper: "#708742",
-    board: "#e2f3c1",
-    food: "#f25555"
-}
 
 gameBoard.style.gridTemplateColumns = `repeat(${width}, 1fr)`;
 gameBoard.style.gridTemplateRows = `repeat(${width}, 1fr)`;
@@ -90,7 +95,7 @@ setInterval(() => {
     //     alert("stop")
     // }
 
-    if (currentInput == "w") {
+    if (input.up == "w") {
 
         viper = [ 
             [ 
@@ -99,7 +104,7 @@ setInterval(() => {
             ...viper
         ]
         viper.pop();
-    } else if (currentInput == "a") {
+    } else if (input.left == "a") {
         viper = [ 
             [ 
                 Number(viperHeadCoordinates[0]) - 1, Number(viperHeadCoordinates[1])
@@ -108,7 +113,7 @@ setInterval(() => {
         ]
         viper.pop();
 
-    } else if (currentInput == "s") {
+    } else if (input.down == "s") {
         console.warn(viper)
 
         viper = [ 
@@ -118,7 +123,7 @@ setInterval(() => {
             ...viper
         ]
         viper.pop();
-    } else if (currentInput == "d") {
+    } else if (input.right == "d") {
         viper = [ 
             [
                 Number(viperHeadCoordinates[0]) + 1, Number(viperHeadCoordinates[1])
@@ -126,7 +131,7 @@ setInterval(() => {
             ...viper
         ]
         viper.pop();
-    } else if (currentInput == "0") {
+    } else if (input.none == null) {
         viper = [ 
             [
                 Number(viperHeadCoordinates[0]), Number(viperHeadCoordinates[1])
