@@ -1,50 +1,115 @@
 const gameBoard = document.querySelector(".game-board");
 
 let currentInput = "w";
-let viper = [[7,9], [8,9], [9,9]];
+let viper = [[9,7], [9,8], [9,9]];
+let viperFood = [5,9];
+let width = 20;
 
-for(let i = 0; i < 10; i++) {
-    for(let j = 0; j < 10; j++) {
+let colorScheme = {
+    viper: "#708742",
+    board: "#e2f3c1",
+    food: "#f25555"
+}
+
+for(let i = 0; i < width; i++) {
+    for(let j = 0; j < width; j++) {
         let cell = document.createElement("div");
         cell.classList.add("cell");
-        cell.id = `${i},${j}`;    
+        cell.id = `${j},${i}`;    
 
         gameBoard.appendChild(cell)
     }
 
 }
 
-const paintViper = () => {
+const paintViper = (viper) => {
     viper.forEach(viperCell => {
-        document.getElementById(viperCell.toString()).style.backgroundColor = "#e96969"
+        document.getElementById(viperCell.toString()).style.backgroundColor = colorScheme.viper;
     })
 } 
 
+const removeViperTrail = (viper) => {
+    viper.forEach(viperCell => {  
+        document.querySelectorAll(".cell").forEach(element => {
+            element.style.backgroundColor = colorScheme.board;
+        })
+    })
+}
+
 setInterval(() => {
-    paintViper();
+    
+    removeViperTrail(viper);
+    paintViper(viper);
+    
+    document.getElementById(viperFood.toString()).style.backgroundColor = colorScheme.food;
+
+    let viperHead = viper[0];
+    // console.log(viperHead[1]);
+
+    // if (viperHead[1] == 0) {
+    //     console.log("end")
+    //     if (currentInput == "w" || currentInput == "s") {
+    //         viper[0][1] = 9; 
+    //     } else {
+    //         viper[1][0] = 0; 
+    //     }
+    // }
+
+    if (JSON.stringify(viperHead) == JSON.stringify(viperFood)) {
+        console.log("food")
+    }
+    
+    
     if (currentInput == "w") {
 
-        let viperHead = viper[0];
-
         viper = [ 
-            [Number(viper[0].toString().split(",")[0]) - 1,
-            Number(viper[0].toString().split(",")[1])],
+            [ 
+                Number(viper[0].toString().split(",")[0]), Number(viper[0].toString().split(",")[1]) - 1    
+            ] ,
+            ...viper
+        ]
+        viper.pop();
+    } else if (currentInput == "a") {
+        viper = [ 
+            [ 
+                Number(viper[0].toString().split(",")[0]) - 1, Number(viper[0].toString().split(",")[1])
+            ] ,
             ...viper
         ]
         viper.pop();
 
-        //repaint map
-        document.querySelectorAll(".cell").style.backgroundColor = "pink";
-        console.log(viper)
-        // viper.forEach((viperCell, i) => {
-        //     if (i != 0) {
-                
-        //     }
-        // })
-        // document.getElementById(viperCell.toString()).style.backgroundColor = "#e96969"
-        
+    } else if (currentInput == "s") {
+        console.warn(viper)
 
-        // console.log(Number(viper[0].toString().split(",")[0]) - 1)
-        // console.log(viper)
+        viper = [ 
+            [ 
+                Number(viper[0].toString().split(",")[0]), Number(viper[0].toString().split(",")[1]) + 1
+            ],
+            ...viper
+        ]
+        viper.pop();
+    } else if (currentInput == "d") {
+        viper = [ 
+            [
+                Number(viper[0].toString().split(",")[0]) + 1, Number(viper[0].toString().split(",")[1])
+            ],
+            ...viper
+        ]
+        viper.pop();
     }
-}, 1000)
+
+    console.log(viper)
+
+}, 300)
+
+document.addEventListener("keydown", (event) => {
+    if (event.key == "w") {
+        currentInput = "w";
+    } else if (event.key == "a") {
+        currentInput = "a";
+    } else if (event.key == "s") {
+        currentInput = "s";
+    } else if (event.key == "d") {
+        currentInput = "d";
+    }
+})

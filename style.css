@@ -18,14 +18,15 @@
     height: 500px; */
     background-color: rgb(255, 255, 255);
     display: grid; 
-    grid-template-columns: repeat(10, 1fr);
-    grid-template-rows: repeat(10, 1fr);
+    grid-template-columns: repeat(20, 1fr);
+    grid-template-rows: repeat(20, 1fr);
     gap: 1px;
 }
 
 .cell {
-    width: 50px;
-    height: 50px;
-    background-color: #ffc0cb;
-    color: #e96969;
+    width: 25px;
+    height: 25px;
+    /* background-color: #e2f3c1;
+    color: #708742; */
+    /* color: #f25555 */
 }    
