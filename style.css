@@ -14,12 +14,8 @@
 }
 
 .game-board {
-    /* width: 500px; 
-    height: 500px; */
     background-color: rgb(255, 255, 255);
     display: grid; 
-    grid-template-columns: repeat(20, 1fr);
-    grid-template-rows: repeat(20, 1fr);
     gap: 1px;
 }
 
@@ -30,7 +26,4 @@
     width: 25px;
     height: 25px;
     border-radius: 5px;
-    /* background-color: #e2f3c1;
-    color: #708742; */
-    /* color: #f25555 */
 }    
