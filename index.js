@@ -15,6 +15,7 @@ let colorScheme = {
 
 gameBoard.style.gridTemplateColumns = `repeat(${width}, 1fr)`;
 gameBoard.style.gridTemplateRows = `repeat(${width}, 1fr)`;
+
 for(let i = 0; i < width; i++) {
     for(let j = 0; j < width; j++) {
         let cell = document.createElement("div");
@@ -138,7 +139,7 @@ setInterval(() => {
     lastLocation = viper[viper.length - 1];
     console.log(viper)
 
-}, 300)
+}, 200)
 
 document.addEventListener("keydown", (event) => {
     if (event.key == "w" || event.key == "ArrowUp") {
