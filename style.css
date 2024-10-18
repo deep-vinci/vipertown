@@ -5,6 +5,9 @@
 * {
     margin: 0;
 }
+body {
+    background-color: #fafff0;
+}
 .game-page {
     width: 100vw;
     height: 100vh;
@@ -26,4 +29,5 @@
     width: 25px;
     height: 25px;
     border-radius: 5px;
+    /* color:#f0f7e1; */
 }    

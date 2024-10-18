@@ -27,7 +27,7 @@ for(let i = 0; i < width; i++) {
 
 }
 
-const foodLocation = () => {
+const generateArrayOfTwoRandomInt = () => {
         return [
             Math.floor(Math.random() *  20), 
             Math.floor(Math.random() *  20)
@@ -37,7 +37,7 @@ const foodLocation = () => {
 const ateFood = () => {
     document.getElementById(viperFood.toString()).style.backgroundColor = colorScheme.viper;
 
-    viperFood = foodLocation();
+    viperFood = generateArrayOfTwoRandomInt();
 }
 
 const paintViper = (viper) => {
@@ -57,34 +57,20 @@ const removeViperTrail = (viper) => {
 }
 
 const paintFood = () => {
-    viperFood = foodLocation();
+    viperFood = generateArrayOfTwoRandomInt();
 
     document.getElementById(viperFood.toString()).style.backgroundColor = colorScheme.food;
 
 }
 
 paintFood();
-viper = [foodLocation(), foodLocation()];
+viper = [generateArrayOfTwoRandomInt(), generateArrayOfTwoRandomInt()];
 setInterval(() => {
     
     removeViperTrail(viper);
     paintViper(viper);
-    // viperFood = foodLocation();
-    // console.log(foodLocation())
-
-    // document.getElementById(viperFood.toString()).style.backgroundColor = colorScheme.food;
 
     let viperHead = viper[0];
-    // console.log(viperHead[1]);
-
-    // if (viperHead[1] == 0) {
-    //     console.log("end")
-    //     if (currentInput == "w" || currentInput == "s") {
-    //         viper[0][1] = 9; 
-    //     } else {
-    //         viper[1][0] = 0; 
-    //     }
-    // }
 
     if (JSON.stringify(viperHead) == JSON.stringify(viperFood)) {
         console.log("food")
@@ -93,7 +79,7 @@ setInterval(() => {
             ...viper,
             lastLocation
         ]
-        // console.log(Number(score.textContent) + 1)
+
         score.textContent = `${Number(score.textContent) + 1}`;
     }
     
