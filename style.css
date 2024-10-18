@@ -23,9 +23,13 @@
     gap: 1px;
 }
 
+.score {
+    position: absolute;
+}
 .cell {
     width: 25px;
     height: 25px;
+    border-radius: 5px;
     /* background-color: #e2f3c1;
     color: #708742; */
     /* color: #f25555 */

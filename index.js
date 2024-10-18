@@ -1,10 +1,11 @@
 const gameBoard = document.querySelector(".game-board");
+const score = document.querySelector(".score span");
 
 let currentInput = "w";
 let viper = [[9,7], [9,8], [9,9]];
-let viperFood = [5,9];
+let viperFood;
 let width = 20;
-
+let lastLocation = [0, 0];
 let colorScheme = {
     viper: "#708742",
     board: "#e2f3c1",
@@ -22,6 +23,19 @@ for(let i = 0; i < width; i++) {
 
 }
 
+const foodLocation = () => {
+        return [
+            Math.floor(Math.random() *  20), 
+            Math.floor(Math.random() *  20)
+        ];
+}
+
+const ateFood = () => {
+    document.getElementById(viperFood.toString()).style.backgroundColor = colorScheme.viper;
+
+    viperFood = foodLocation();
+}
+
 const paintViper = (viper) => {
     viper.forEach(viperCell => {
         document.getElementById(viperCell.toString()).style.backgroundColor = colorScheme.viper;
@@ -34,14 +48,26 @@ const removeViperTrail = (viper) => {
             element.style.backgroundColor = colorScheme.board;
         })
     })
+    document.getElementById(viperFood.toString()).style.backgroundColor = colorScheme.food;
+
 }
 
+const paintFood = () => {
+    viperFood = foodLocation();
+
+    document.getElementById(viperFood.toString()).style.backgroundColor = colorScheme.food;
+
+}
+
+paintFood();
 setInterval(() => {
     
     removeViperTrail(viper);
     paintViper(viper);
-    
-    document.getElementById(viperFood.toString()).style.backgroundColor = colorScheme.food;
+    // viperFood = foodLocation();
+    // console.log(foodLocation())
+
+    // document.getElementById(viperFood.toString()).style.backgroundColor = colorScheme.food;
 
     let viperHead = viper[0];
     // console.log(viperHead[1]);
@@ -57,7 +83,14 @@ setInterval(() => {
 
     if (JSON.stringify(viperHead) == JSON.stringify(viperFood)) {
         console.log("food")
-    }
+        ateFood();
+        viper = [
+            ...viper,
+            lastLocation
+        ]
+        score.textContent = `${Number(score.textContent) += 1}`;
+        // console.log(Number(score.textContent) + 1)
+     }
     
     
     if (currentInput == "w") {
@@ -98,9 +131,10 @@ setInterval(() => {
         viper.pop();
     }
 
+    lastLocation = viper[viper.length - 1];
     console.log(viper)
 
-}, 300)
+}, 200)
 
 document.addEventListener("keydown", (event) => {
     if (event.key == "w") {
