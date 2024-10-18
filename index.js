@@ -71,6 +71,7 @@ setInterval(() => {
     paintViper(viper);
 
     let viperHead = viper[0];
+    let viperHeadCoordinates = viperHead.toString().split(",");
 
     if (JSON.stringify(viperHead) == JSON.stringify(viperFood)) {
         console.log("food")
@@ -88,7 +89,7 @@ setInterval(() => {
 
         viper = [ 
             [ 
-                Number(viper[0].toString().split(",")[0]), Number(viper[0].toString().split(",")[1]) - 1    
+                Number(viperHeadCoordinates[0]), Number(viperHeadCoordinates[1]) - 1    
             ] ,
             ...viper
         ]
@@ -96,7 +97,7 @@ setInterval(() => {
     } else if (currentInput == "a") {
         viper = [ 
             [ 
-                Number(viper[0].toString().split(",")[0]) - 1, Number(viper[0].toString().split(",")[1])
+                Number(viperHeadCoordinates[0]) - 1, Number(viperHeadCoordinates[1])
             ] ,
             ...viper
         ]
@@ -107,7 +108,7 @@ setInterval(() => {
 
         viper = [ 
             [ 
-                Number(viper[0].toString().split(",")[0]), Number(viper[0].toString().split(",")[1]) + 1
+                Number(viperHeadCoordinates[0]), Number(viperHeadCoordinates[1]) + 1
             ],
             ...viper
         ]
@@ -115,7 +116,7 @@ setInterval(() => {
     } else if (currentInput == "d") {
         viper = [ 
             [
-                Number(viper[0].toString().split(",")[0]) + 1, Number(viper[0].toString().split(",")[1])
+                Number(viperHeadCoordinates[0]) + 1, Number(viperHeadCoordinates[1])
             ],
             ...viper
         ]
