@@ -65,6 +65,7 @@ const paintFood = () => {
 
 paintFood();
 viper = [generateArrayOfTwoRandomInt(), generateArrayOfTwoRandomInt()];
+
 setInterval(() => {
     
     removeViperTrail(viper);
@@ -84,6 +85,9 @@ setInterval(() => {
         score.textContent = `${Number(score.textContent) + 1}`;
     }
     
+    if (viperHead[0] == 0 || viperHead[1] == 19) {
+        alert("stop")
+    }
 
     if (currentInput == "w") {
 

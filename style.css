@@ -31,3 +31,7 @@ body {
     border-radius: 5px;
     /* color:#f0f7e1; */
 }    
+
+.cell-dark {
+    background-color: #cdea94;
+}
