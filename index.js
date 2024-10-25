@@ -17,6 +17,7 @@ let viper, viperFood, width = 20, lastLocation = [0, 0], currentInput = null;
 
 gameBoard.style.gridTemplateColumns = `repeat(${width}, 1fr)`;
 gameBoard.style.gridTemplateRows = `repeat(${width}, 1fr)`;
+gameBoard.style.gap = "1px";
 
 for(let i = 0; i < width; i++) {
     for(let j = 0; j < width; j++) {
