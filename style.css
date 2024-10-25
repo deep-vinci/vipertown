@@ -19,7 +19,7 @@ body {
 .game-board {
     background-color: rgb(255, 255, 255);
     display: grid; 
-    gap: 1px;
+    /* gap: 1px; */
 }
 
 .score {
@@ -34,4 +34,10 @@ body {
 
 .cell-dark {
     background-color: #cdea94;
+}
+
+.viper {
+    background-color: red;
+    width: 100%;
+    height: 100%;
 }
