@@ -5,37 +5,24 @@ const score = document.querySelector(".score span");
 
 const restartGame = document.querySelector(".restart-game")
 
-let currentInput = null;
-let inputOptions = {
+let input = {
     up: "w",
     down: "s",
     left: "a",
     right: "d",
     none: null
-}
+};
 
-let viper;
-let viperFood;
-let width = 20;
-let lastLocation = [0, 0];
+let viper, viperFood, width = 20, lastLocation = [0, 0], currentInput = null;
 
 gameBoard.style.gridTemplateColumns = `repeat(${width}, 1fr)`;
 gameBoard.style.gridTemplateRows = `repeat(${width}, 1fr)`;
-gameBoard.style.gap = "1.5px";
 
 for(let i = 0; i < width; i++) {
     for(let j = 0; j < width; j++) {
         let cell = document.createElement("div");
         cell.classList.add("cell");
         cell.id = `${j},${i}`;    
-
-        if (j % 2 == 0 && i % 2 == 0) {
-            // cell.style.background = "green"
-        } 
-
-        if (j % 2 != 0 && i % 2 != 0) {
-            // cell.style.background = "green"
-        }
 
         gameBoard.appendChild(cell)
     }
@@ -57,26 +44,15 @@ const ateFood = () => {
 
 const paintViper = (viper) => {
     viper.forEach(viperCell => {
-        // document.getElementById(viperCell.toString()).style.backgroundColor = colorScheme.viper;
-        
-        
-        let viperCellDiv = document.getElementById(viperCell.toString());
-        let viperCellConstructed = document.createElement("div");
-        viperCellConstructed.classList.add("viper")
-        viperCellConstructed.id = `_${viperCell.toString()}`
-        viperCellDiv.appendChild(viperCellConstructed)
-
+        document.getElementById(viperCell.toString()).style.backgroundColor = colorScheme.viper;
     })
 } 
 
 const removeViperTrail = (viper) => {
     viper.forEach(viperCell => {  
-        // document.querySelectorAll(".cell").forEach(element => {
-        //     element.style.backgroundColor = colorScheme.board;
-        // })
-
-        let viperCellConstructed = document.getElementById(`_${viperCell.toString()}`);
-        viperCellConstructed.remove();
+        document.querySelectorAll(".cell").forEach(element => {
+            element.style.backgroundColor = colorScheme.board;
+        })
     })
     document.getElementById(viperFood.toString()).style.backgroundColor = colorScheme.food;
 
@@ -93,9 +69,9 @@ paintFood();
 viper = [generateArrayOfTwoRandomInt()];
 
 setInterval(() => {
-    paintViper(viper);
     
     removeViperTrail(viper);
+    paintViper(viper);
 
     let viperHead = viper[0];
     let viperHeadCoordinates = viperHead.toString().split(",");
@@ -115,7 +91,7 @@ setInterval(() => {
     //     alert("stop")
     // }
 
-    if (input.up == "w") {
+    if (currentInput == input.up) {
 
         viper = [ 
             [ 
@@ -124,7 +100,7 @@ setInterval(() => {
             ...viper
         ]
         viper.pop();
-    } else if (input.left == "a") {
+    } else if (currentInput == input.left) {
         viper = [ 
             [ 
                 Number(viperHeadCoordinates[0]) - 1, Number(viperHeadCoordinates[1])
@@ -133,7 +109,7 @@ setInterval(() => {
         ]
         viper.pop();
 
-    } else if (input.down == "s") {
+    } else if (currentInput == input.down) {
         console.warn(viper)
 
         viper = [ 
@@ -143,7 +119,7 @@ setInterval(() => {
             ...viper
         ]
         viper.pop();
-    } else if (input.right == "d") {
+    } else if (currentInput == input.right) {
         viper = [ 
             [
                 Number(viperHeadCoordinates[0]) + 1, Number(viperHeadCoordinates[1])
@@ -151,7 +127,7 @@ setInterval(() => {
             ...viper
         ]
         viper.pop();
-    } else if (input.none == null) {
+    } else if (currentInput == input.none) {
         viper = [ 
             [
                 Number(viperHeadCoordinates[0]), Number(viperHeadCoordinates[1])
