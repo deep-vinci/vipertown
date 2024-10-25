@@ -12,7 +12,7 @@ let inputOptions = {
     left: "a",
     right: "d",
     none: null
-};
+}
 
 let viper;
 let viperFood;
@@ -21,12 +21,21 @@ let lastLocation = [0, 0];
 
 gameBoard.style.gridTemplateColumns = `repeat(${width}, 1fr)`;
 gameBoard.style.gridTemplateRows = `repeat(${width}, 1fr)`;
+gameBoard.style.gap = "1.5px";
 
 for(let i = 0; i < width; i++) {
     for(let j = 0; j < width; j++) {
         let cell = document.createElement("div");
         cell.classList.add("cell");
         cell.id = `${j},${i}`;    
+
+        if (j % 2 == 0 && i % 2 == 0) {
+            // cell.style.background = "green"
+        } 
+
+        if (j % 2 != 0 && i % 2 != 0) {
+            // cell.style.background = "green"
+        }
 
         gameBoard.appendChild(cell)
     }
@@ -48,15 +57,26 @@ const ateFood = () => {
 
 const paintViper = (viper) => {
     viper.forEach(viperCell => {
-        document.getElementById(viperCell.toString()).style.backgroundColor = colorScheme.viper;
+        // document.getElementById(viperCell.toString()).style.backgroundColor = colorScheme.viper;
+        
+        
+        let viperCellDiv = document.getElementById(viperCell.toString());
+        let viperCellConstructed = document.createElement("div");
+        viperCellConstructed.classList.add("viper")
+        viperCellConstructed.id = `_${viperCell.toString()}`
+        viperCellDiv.appendChild(viperCellConstructed)
+
     })
 } 
 
 const removeViperTrail = (viper) => {
     viper.forEach(viperCell => {  
-        document.querySelectorAll(".cell").forEach(element => {
-            element.style.backgroundColor = colorScheme.board;
-        })
+        // document.querySelectorAll(".cell").forEach(element => {
+        //     element.style.backgroundColor = colorScheme.board;
+        // })
+
+        let viperCellConstructed = document.getElementById(`_${viperCell.toString()}`);
+        viperCellConstructed.remove();
     })
     document.getElementById(viperFood.toString()).style.backgroundColor = colorScheme.food;
 
@@ -73,9 +93,9 @@ paintFood();
 viper = [generateArrayOfTwoRandomInt()];
 
 setInterval(() => {
+    paintViper(viper);
     
     removeViperTrail(viper);
-    paintViper(viper);
 
     let viperHead = viper[0];
     let viperHeadCoordinates = viperHead.toString().split(",");
