@@ -11,7 +11,7 @@ let input = {
     left: "a",
     right: "d",
     none: null
-};
+}
 
 let viper, viperFood, width = 20, lastLocation = [0, 0], currentInput = null;
 
