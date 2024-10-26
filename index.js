@@ -66,17 +66,11 @@ const paintFood = () => {
 
 }
 
-paintFood();
-viper = [generateArrayOfTwoRandomInt()];
+const updateScoreOnFoodEat = () => {
+    score.textContent = `${Number(score.textContent) + 1}`;
+}
 
-setInterval(() => {
-    
-    removeViperTrail(viper);
-    paintViper(viper);
-
-    let viperHead = viper[0];
-    let viperHeadCoordinates = viperHead.toString().split(",");
-
+const checkIfFoodPresent = (viperHead, viperFood) => {
     if (JSON.stringify(viperHead) == JSON.stringify(viperFood)) {
         console.log("food")
         ateFood();
@@ -84,14 +78,25 @@ setInterval(() => {
             ...viper,
             lastLocation
         ]
+        return true;
+    }
 
-        score.textContent = `${Number(score.textContent) + 1}`;
+    return false;
+}
+
+paintFood();
+viper = [generateArrayOfTwoRandomInt()];
+
+const interval = setInterval(() => {
+    
+
+    let viperHead = viper[0];
+    let viperHeadCoordinates = viperHead.toString().split(",");
+
+    if (checkIfFoodPresent(viperHead, viperFood)) {
+        updateScoreOnFoodEat();
     }
     
-    // if (viperHead[0] == 0 || viperHead[1] == 19) {
-    //     alert("stop")
-    // }
-
     if (currentInput == input.up) {
 
         viper = [ 
@@ -111,8 +116,6 @@ setInterval(() => {
         viper.pop();
 
     } else if (currentInput == input.down) {
-        console.warn(viper)
-
         viper = [ 
             [ 
                 Number(viperHeadCoordinates[0]), Number(viperHeadCoordinates[1]) + 1
@@ -135,11 +138,20 @@ setInterval(() => {
             ],
             ...viper
         ]
+        // console.log(viper)
+
         viper.pop();
     }
+    console.log(viperHeadCoordinates)
 
     lastLocation = viper[viper.length - 1];
-    console.log(viper)
+    if (viperHeadCoordinates[0] < 0 || viperHeadCoordinates[1] < 0 || viperHeadCoordinates[0] > 19 || viperHeadCoordinates[1] > 19) {
+        console.log("end");
+        clearInterval(interval);
+    }
+
+    removeViperTrail(viper);
+    paintViper(viper);
 
 }, 200)
 
