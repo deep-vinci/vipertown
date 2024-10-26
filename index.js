@@ -99,6 +99,8 @@ const interval = setInterval(() => {
         updateScoreOnFoodEat();
     }
     
+
+    // spaghetti code :p can can be refactored to remove same collision checks but i am too lazy to come up with elegant solutions
     if (currentInput == input.up) {
         if (Number(viperHeadCoordinates[1]) == 0) {
             clearInterval(interval);
@@ -118,7 +120,6 @@ const interval = setInterval(() => {
             return
         }
 
-        
         viper = [ 
             [ 
                 Number(viperHeadCoordinates[0]) - 1, Number(viperHeadCoordinates[1])
@@ -133,7 +134,6 @@ const interval = setInterval(() => {
             return
         }
 
-        
         viper = [ 
             [ 
                 Number(viperHeadCoordinates[0]), Number(viperHeadCoordinates[1]) + 1
@@ -146,7 +146,6 @@ const interval = setInterval(() => {
             clearInterval(interval);
             return
         }
-
 
         viper = [ 
             [
