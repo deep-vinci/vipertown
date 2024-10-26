@@ -19,16 +19,16 @@ body {
 .game-board {
     background-color: rgb(255, 255, 255);
     display: grid; 
-    /* gap: 1px; */
 }
 
 .score {
     position: absolute;
 }
 .cell {
-    width: 25px;
-    height: 25px;
-    border-radius: 5px;
+    width: 18px;
+    height: 18px;
+    /* gap:2px; */
+    /* border-radius: 5px; */
     /* color:#f0f7e1; */
 }    
 

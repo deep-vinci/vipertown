@@ -13,11 +13,11 @@ let input = {
     none: null
 };
 
-let viper, viperFood, width = 20, lastLocation = [0, 0], currentInput = null;
+let viper, viperFood, width = 27, lastLocation = [0, 0], currentInput = null;
 
 gameBoard.style.gridTemplateColumns = `repeat(${width}, 1fr)`;
 gameBoard.style.gridTemplateRows = `repeat(${width}, 1fr)`;
-gameBoard.style.gap = "1px";
+// gameBoard.style.gap = "5px";
 
 for(let i = 0; i < width; i++) {
     for(let j = 0; j < width; j++) {
@@ -32,8 +32,8 @@ for(let i = 0; i < width; i++) {
 
 const generateArrayOfTwoRandomInt = () => {
         return [
-            Math.floor(Math.random() *  20), 
-            Math.floor(Math.random() *  20)
+            Math.floor(Math.random() *  width), 
+            Math.floor(Math.random() *  width)
         ];
 }
 
@@ -45,16 +45,21 @@ const ateFood = () => {
 
 const paintViper = (viper) => {
     viper.forEach(viperCell => {
+        // let v = document.createElement("div");
+        // v.setAttribute("id", `${viperCell.toString()}_`);
+        // v.classList.add("viper")
+        // let c = document.getElementById(viperCell.toString());
+        // c.appendChild(v);
+
         document.getElementById(viperCell.toString()).style.backgroundColor = colorScheme.viper;
     })
 } 
 
-const removeViperTrail = (viper) => {
-    viper.forEach(viperCell => {  
-        document.querySelectorAll(".cell").forEach(element => {
-            element.style.backgroundColor = colorScheme.board;
-        })
+const removeViperTrail = () => {
+    document.querySelectorAll(".cell").forEach(element => {
+        element.style.backgroundColor = colorScheme.board;
     })
+
     document.getElementById(viperFood.toString()).style.backgroundColor = colorScheme.food;
 
 }
@@ -72,12 +77,13 @@ const updateScoreOnFoodEat = () => {
 
 const checkIfFoodPresent = (viperHead, viperFood) => {
     if (JSON.stringify(viperHead) == JSON.stringify(viperFood)) {
-        console.log("food")
+        // console.log("food")
         ateFood();
         viper = [
             ...viper,
             lastLocation
         ]
+        // console.log(viper)
         return true;
     }
 
@@ -90,7 +96,9 @@ paintFood();
 viper = [generateArrayOfTwoRandomInt()];
 
 const interval = setInterval(() => {
-    
+
+
+    // console.log(viper)
 
     let viperHead = viper[0];
     let viperHeadCoordinates = viperHead.toString().split(",");
@@ -129,7 +137,7 @@ const interval = setInterval(() => {
         viper.pop();
 
     } else if (currentInput == input.down) {
-        if (Number(viperHeadCoordinates[1]) == 19) {
+        if (Number(viperHeadCoordinates[1]) == width - 1) {
             clearInterval(interval);
             return
         }
@@ -142,7 +150,7 @@ const interval = setInterval(() => {
         ]
         viper.pop();
     } else if (currentInput == input.right) {
-        if (Number(viperHeadCoordinates[0]) == 19) {
+        if (Number(viperHeadCoordinates[0]) == width - 1) {
             clearInterval(interval);
             return
         }
@@ -165,18 +173,15 @@ const interval = setInterval(() => {
 
         viper.pop();
     }
-    console.log(viperHeadCoordinates)
 
+    // array of last coord to add to viper when it eats food so it increases its length
     lastLocation = viper[viper.length - 1];
-    // if (viperHeadCoordinates[0] < 0 || viperHeadCoordinates[1] < 0 || viperHeadCoordinates[0] > 19 || viperHeadCoordinates[1] > 19) {
-    //     console.log("end");
-    //     clearInterval(interval);
-    // }
-
+    
     removeViperTrail(viper);
     paintViper(viper);
 
-}, 200)
+
+}, 80)
 
 document.addEventListener("keydown", (event) => {
     if (event.key == "w" || event.key == "ArrowUp") {
