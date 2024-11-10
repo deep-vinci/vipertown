@@ -17,7 +17,8 @@ let viper, viperFood, width = 27, lastLocation = [0, 0], currentInput = null;
 
 gameBoard.style.gridTemplateColumns = `repeat(${width}, 1fr)`;
 gameBoard.style.gridTemplateRows = `repeat(${width}, 1fr)`;
-// gameBoard.style.gap = "5px";
+gameBoard.style.gap = "2px";
+
 
 for(let i = 0; i < width; i++) {
     for(let j = 0; j < width; j++) {
@@ -181,7 +182,7 @@ const interval = setInterval(() => {
     paintViper(viper);
 
 
-}, 80)
+}, 150)
 
 document.addEventListener("keydown", (event) => {
     if (event.key == "w" || event.key == "ArrowUp") {

@@ -27,8 +27,8 @@ body {
 .cell {
     width: 18px;
     height: 18px;
-    /* gap:2px; */
-    /* border-radius: 5px; */
+    gap:2px;
+    border-radius: 5px;
     /* color:#f0f7e1; */
 }    
 
