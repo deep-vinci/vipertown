@@ -64,3 +64,25 @@ body {
     padding: 8px 14px;
     margin: 0;
 }
+
+.score {
+    position: absolute;
+    right: 0;
+    padding: 0px 20px;
+    font-size: 4rem;
+    color: #708742;
+
+    font-family: "Sour Gummy", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 900;
+    font-style: italic;
+    font-variation-settings:
+      "wdth" 100;
+  
+}
+
+.home {
+    left: 0;
+    font-size: 2rem;
+    color: #5b6051;
+}
