@@ -219,3 +219,20 @@ playGameButton.addEventListener("click", () => {
     gameTab.style.display = "block";
     homeTab.style.display = "none";
 })
+
+const backgroundCreator = () => {
+    let bgGameboard = document.createElement("div");
+    for(let i = 0; i < 10; i++) {
+        for(let j = 0; j < 10; j++) {
+            let cell = document.createElement("div");
+            cell.classList.add("bg-cell");
+            cell.id = `${j},${i}`;    
+    
+            homeTab.appendChild(cell)   
+        }
+    
+    }
+    
+}
+
+// backgroundCreator();

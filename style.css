@@ -37,7 +37,8 @@ button {
 .top-bar {
     position: absolute;
 }
-.cell {
+
+.cell, .bg-cell {
     width: 18px;
     height: 18px;
     gap:2px;
