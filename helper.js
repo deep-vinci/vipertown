@@ -54,7 +54,7 @@ const getContributors = () => {
     //     console.log(data)
     // )
     fetchedData.forEach(elem => {
-        contributorsDiv.textContent += `${elem.login.toLowerCase()} `
+        // contributorsDiv.textContent += `${elem.login.toLowerCase()} `
     })
 }
 

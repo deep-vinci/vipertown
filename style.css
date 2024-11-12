@@ -23,7 +23,7 @@ body {
     
 }
 
-.score {
+.top-bar {
     position: absolute;
 }
 .cell {
@@ -42,4 +42,12 @@ body {
     background-color: red;
     width: 100%;
     height: 100%;
+}
+
+.restart-game {
+    background-color: #708742;
+    border: none;
+    color: white;
+    border-radius: 5px;
+    padding: 8px 14px;
 }

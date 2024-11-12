@@ -19,6 +19,7 @@ gameBoard.style.gridTemplateColumns = `repeat(${width}, 1fr)`;
 gameBoard.style.gridTemplateRows = `repeat(${width}, 1fr)`;
 gameBoard.style.gap = "2px";
 
+// restartGame.style.display = "none";
 
 for(let i = 0; i < width; i++) {
     for(let j = 0; j < width; j++) {
@@ -113,6 +114,7 @@ const interval = setInterval(() => {
     if (currentInput == input.up) {
         if (Number(viperHeadCoordinates[1]) == 0) {
             clearInterval(interval);
+            restartGame.style.display = "block"
             return
         }
 
