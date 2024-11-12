@@ -1,5 +1,8 @@
 import { colorScheme } from "./data/colors.js";
 
+const homeTab = document.querySelector(".home-tab");
+const gameTab = document.querySelector(".game-tab");
+
 const gameBoard = document.querySelector(".game-board");
 const score = document.querySelector(".score span");
 
@@ -20,6 +23,10 @@ gameBoard.style.gridTemplateRows = `repeat(${width}, 1fr)`;
 gameBoard.style.gap = "2px";
 
 restartGame.style.display = "none";
+
+// gameTab.style.display = "none";
+
+
 
 for(let i = 0; i < width; i++) {
     for(let j = 0; j < width; j++) {

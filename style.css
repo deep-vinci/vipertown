@@ -8,6 +8,12 @@
 body {
     background-color: #fafff0;
 }
+
+@font-face {
+    font-family: 'PressStart2P-Regular';
+    src: url('assets/PressStart2P-Regular.ttf');
+}
+  
 .game-page {
     width: 100vw;
     height: 100vh;
@@ -30,7 +36,7 @@ body {
     width: 18px;
     height: 18px;
     gap:2px;
-    border-radius: 5px;
+    /* border-radius: 5px; */
     /* color:#f0f7e1; */
 }    
 
@@ -60,7 +66,7 @@ body {
     background-color: #708742;
     border: none;
     color: white;
-    border-radius: 5px;
+    /* border-radius: 5px; */
     padding: 8px 14px;
     margin: 0;
     animation-name: restartButton;
@@ -81,14 +87,14 @@ body {
 .score {
     position: absolute;
     right: 0;
-    padding: 0px 20px;
+    padding: 20px 20px;
     font-size: 4rem;
     color: #708742;
 
-    font-family: "Sour Gummy", sans-serif;
+    font-family: PressStart2P-Regular;
     font-optical-sizing: auto;
     font-weight: 900;
-    font-style: italic;
+    /* font-style: italic; */
     font-variation-settings:
       "wdth" 100;
   
