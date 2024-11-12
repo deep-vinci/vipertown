@@ -63,6 +63,19 @@ body {
     border-radius: 5px;
     padding: 8px 14px;
     margin: 0;
+    animation-name: restartButton;
+    animation-duration: 1s;
+    animation-iteration-count: infinite
+}
+
+@keyframes restartButton {
+    0% {
+        transform: scale(1);
+    } 50% {
+        transform: scale(1.05);
+    } 100% {
+        transform: scale(1);
+    }
 }
 
 .score {
@@ -86,3 +99,4 @@ body {
     font-size: 2rem;
     color: #5b6051;
 }
+
