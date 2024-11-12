@@ -24,9 +24,8 @@ gameBoard.style.gap = "2px";
 
 restartGame.style.display = "none";
 
-// gameTab.style.display = "none";
-
-
+gameTab.style.display = "none";
+// homeTab.style.display = "none";
 
 for(let i = 0; i < width; i++) {
     for(let j = 0; j < width; j++) {
