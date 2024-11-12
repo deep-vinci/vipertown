@@ -44,10 +44,23 @@ body {
     height: 100%;
 }
 
+.restart-game-menu {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    padding:0;
+    /* background-color: red; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .restart-game {
     background-color: #708742;
     border: none;
     color: white;
     border-radius: 5px;
     padding: 8px 14px;
+    margin: 0;
 }

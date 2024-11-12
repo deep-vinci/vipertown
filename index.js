@@ -19,7 +19,7 @@ gameBoard.style.gridTemplateColumns = `repeat(${width}, 1fr)`;
 gameBoard.style.gridTemplateRows = `repeat(${width}, 1fr)`;
 gameBoard.style.gap = "2px";
 
-// restartGame.style.display = "none";
+restartGame.style.display = "none";
 
 for(let i = 0; i < width; i++) {
     for(let j = 0; j < width; j++) {
@@ -128,6 +128,8 @@ const interval = setInterval(() => {
     } else if (currentInput == input.left) {
         if (Number(viperHeadCoordinates[0]) == 0) {
             clearInterval(interval);
+            restartGame.style.display = "block"
+
             return
         }
 
@@ -142,6 +144,7 @@ const interval = setInterval(() => {
     } else if (currentInput == input.down) {
         if (Number(viperHeadCoordinates[1]) == width - 1) {
             clearInterval(interval);
+            restartGame.style.display = "block"
             return
         }
 
@@ -155,6 +158,7 @@ const interval = setInterval(() => {
     } else if (currentInput == input.right) {
         if (Number(viperHeadCoordinates[0]) == width - 1) {
             clearInterval(interval);
+            restartGame.style.display = "block"
             return
         }
 
