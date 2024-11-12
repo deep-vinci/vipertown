@@ -3,6 +3,9 @@ import { colorScheme } from "./data/colors.js";
 const homeTab = document.querySelector(".home-tab");
 const gameTab = document.querySelector(".game-tab");
 
+const playGameButton = document.querySelector(".play-game");
+const settingsButton = document.querySelector(".settings");
+
 const gameBoard = document.querySelector(".game-board");
 const score = document.querySelector(".score span");
 
@@ -209,5 +212,10 @@ document.addEventListener("keydown", (event) => {
 })
 
 restartGame.addEventListener("click", () => {
-    location.reload()
+    location.reload()   
+})
+
+playGameButton.addEventListener("click", () => {
+    gameTab.style.display = "block";
+    homeTab.style.display = "none";
 })
