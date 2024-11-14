@@ -95,7 +95,7 @@ button {
     padding: 20px 20px;
     font-size: 4rem;
     color: #708742;
-    text-shadow: 4px 4px #364519;
+    text-shadow: 4px 4px #000;
 
     font-family: PressStart2P-Regular;
     font-optical-sizing: auto;
@@ -111,7 +111,7 @@ button {
     font-size: 2rem;
     color: #708742;
     letter-spacing: 0.3rem;
-    text-shadow: 4px 4px #364519;
+    text-shadow: 4px 4px #000;
 }
 
 .home-tab {
@@ -121,7 +121,7 @@ button {
         color: #708742;
         margin-top: 7rem;
         letter-spacing: 0.8rem;
-        text-shadow: 6px 6px #364519;
+        text-shadow: 7px 7px #000;
     }
 }
 
@@ -153,7 +153,7 @@ button {
     /* border: none; */
     border: 1px solid #708742;
     background-color: transparent;
-    box-shadow: 6px 6px #42541e;;
+    box-shadow: 6px 6px #000;;
 }
 
 .top-score {
@@ -161,3 +161,9 @@ button {
     font-size: 0.7rem;
     text-shadow: none;
 }
+
+/* @media only screen and (min-device-width: 320px){
+    .home-tab h1 {
+        font-size: 1rem;
+    }
+} */
