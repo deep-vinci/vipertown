@@ -159,7 +159,7 @@ button {
 .top-score {
     margin-top: 1rem;
     font-size: 0.7rem;
-    text-shadow: 1px 1px #000;
+    text-shadow: 1.2px 1.2px #000;
 }
 
 /* @media only screen and (min-device-width: 320px){
