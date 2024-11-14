@@ -8,6 +8,7 @@ const settingsButton = document.querySelector(".settings");
 
 const gameBoard = document.querySelector(".game-board");
 const score = document.querySelector(".score span");
+const topScore = document.querySelector(".top-score span")
 
 const restartGame = document.querySelector(".restart-game")
 
@@ -29,6 +30,12 @@ restartGame.style.display = "none";
 
 gameTab.style.display = "none";
 // homeTab.style.display = "none";
+
+if (localStorage.getItem("topScore")) {
+    topScore.textContent = localStorage.getItem("topScore");
+} else {
+    localStorage.setItem("topScore", 0)
+}
 
 for(let i = 0; i < width; i++) {
     for(let j = 0; j < width; j++) {
@@ -124,6 +131,9 @@ const interval = setInterval(() => {
         if (Number(viperHeadCoordinates[1]) == 0) {
             clearInterval(interval);
             restartGame.style.display = "block"
+            if (Number(localStorage.getItem("topScore")) < Number(score.textContent)) {
+                localStorage.setItem("topScore", score.textContent)
+            }
             return
         }
 
@@ -138,6 +148,9 @@ const interval = setInterval(() => {
         if (Number(viperHeadCoordinates[0]) == 0) {
             clearInterval(interval);
             restartGame.style.display = "block"
+            if (Number(localStorage.getItem("topScore")) < Number(score.textContent)) {
+                localStorage.setItem("topScore", score.textContent)
+            }
 
             return
         }
@@ -154,6 +167,9 @@ const interval = setInterval(() => {
         if (Number(viperHeadCoordinates[1]) == width - 1) {
             clearInterval(interval);
             restartGame.style.display = "block"
+            if (Number(localStorage.getItem("topScore")) < Number(score.textContent)) {
+                localStorage.setItem("topScore", score.textContent)
+            }
             return
         }
 
@@ -168,6 +184,9 @@ const interval = setInterval(() => {
         if (Number(viperHeadCoordinates[0]) == width - 1) {
             clearInterval(interval);
             restartGame.style.display = "block"
+            if (Number(localStorage.getItem("topScore")) < Number(score.textContent)) {
+                localStorage.setItem("topScore", score.textContent)
+            }
             return
         }
 

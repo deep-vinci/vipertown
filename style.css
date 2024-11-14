@@ -155,3 +155,9 @@ button {
     background-color: transparent;
     box-shadow: 6px 6px #42541e;;
 }
+
+.top-score {
+    margin-top: 1rem;
+    font-size: 0.7rem;
+    text-shadow: none;
+}
