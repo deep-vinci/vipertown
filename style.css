@@ -201,6 +201,9 @@ button {
 
 .settings-tab {
     height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
 }
 
 .settings-top-bar {
@@ -208,8 +211,15 @@ button {
     justify-content: center;
     margin-top: 7rem;
     gap: 7rem;
+    /* width: 50vw; */
     /* background-color: pink;   */
     /* height: 5rem; */
+}
+
+.settings-option {
+    width: 100vw;
+    display: flex;
+    justify-content: center;
 }
 
 .game-back-button {
