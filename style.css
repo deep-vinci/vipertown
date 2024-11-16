@@ -136,7 +136,7 @@ button {
     }
 }
 
-.back-button {
+.settings-back-button, .game-back-button {
     padding: 14px 50px;
     font-weight: 900;
     color:#708742;
@@ -147,7 +147,11 @@ button {
 
 }
 
-.back-button:hover {
+/* .home button {
+    margin-top: -20px;
+} */
+
+.settings-back-button:hover, .game-back-button:hover {
     background-color: #708742;
     color: white;
 }
@@ -204,9 +208,16 @@ button {
     justify-content: center;
     margin-top: 7rem;
     gap: 7rem;
-    /* background-color: pink; */
+    /* background-color: pink;   */
     /* height: 5rem; */
 }
+
+.game-back-button {
+    position: absolute;
+    bottom: 1.5rem;
+    left: 1.5rem;
+}
+
 
 .back {
     

@@ -6,6 +6,8 @@ const settingsTab = document.querySelector(".settings-tab");
 
 const playGameButton = document.querySelector(".play-game");
 const settingsButton = document.querySelector(".settings");
+const settingsBackButton = document.querySelector(".settings-back-button");
+const gameBackButton = document.querySelector(".game-back-button");
 
 const gameBoard = document.querySelector(".game-board");
 const score = document.querySelector(".score span");
@@ -29,8 +31,8 @@ gameBoard.style.gap = "2px";
 
 restartGame.style.display = "none";
 
-homeTab.style.display = "none";
-settingsTab.style.display = "block";
+homeTab.style.display = "block";
+settingsTab.style.display = "none";
 gameTab.style.display = "none";
 
 // homeTab.style.display = "none";
@@ -247,4 +249,16 @@ settingsButton.addEventListener("click", () => {
     gameTab.style.display = "none";
     homeTab.style.display = "none";
     settingsTab.style.display = "block";
+})
+
+settingsBackButton.addEventListener("click", () => {
+    gameTab.style.display = "none";
+    homeTab.style.display = "block";
+    settingsTab.style.display = "none";
+})
+
+gameBackButton.addEventListener("click", () => {
+    gameTab.style.display = "none";
+    homeTab.style.display = "block";
+    settingsTab.style.display = "none";
 })
