@@ -216,10 +216,26 @@ button {
     /* height: 5rem; */
 }
 
-.settings-option {
-    width: 100vw;
+.settings-options {
+    margin-top: 7rem;
     display: flex;
     justify-content: center;
+}
+
+.speed {
+    display: flex;
+    gap: 7rem;
+    align-items: center;
+}
+
+.speed button {
+    padding: 10px 30px;
+    font-weight: 900;
+    color:#708742;
+    /* border: none; */
+    border: 1px solid #708742;
+    background-color: white;
+    /* box-shadow: 6px 6px #000;; */
 }
 
 .game-back-button {
