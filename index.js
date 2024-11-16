@@ -2,6 +2,7 @@ import { colorScheme } from "./data/colors.js";
 
 const homeTab = document.querySelector(".home-tab");
 const gameTab = document.querySelector(".game-tab");
+const settingsTab = document.querySelector(".settings-tab");
 
 const playGameButton = document.querySelector(".play-game");
 const settingsButton = document.querySelector(".settings");
@@ -28,7 +29,10 @@ gameBoard.style.gap = "2px";
 
 restartGame.style.display = "none";
 
+homeTab.style.display = "none";
+settingsTab.style.display = "block";
 gameTab.style.display = "none";
+
 // homeTab.style.display = "none";
 
 if (localStorage.getItem("topScore")) {
@@ -237,4 +241,10 @@ restartGame.addEventListener("click", () => {
 playGameButton.addEventListener("click", () => {
     gameTab.style.display = "block";
     homeTab.style.display = "none";
+})
+
+settingsButton.addEventListener("click", () => {
+    gameTab.style.display = "none";
+    homeTab.style.display = "none";
+    settingsTab.style.display = "block";
 })

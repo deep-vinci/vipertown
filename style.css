@@ -125,6 +125,33 @@ button {
     }
 }
 
+.settings-tab {
+    h1 {
+        font-size: 2.5rem;
+        text-align: center;
+        color: #708742;
+        /* padding-top: 7rem; */
+        letter-spacing: 0.5rem;
+        text-shadow: 5px 5px #000;
+    }
+}
+
+.back-button {
+    padding: 14px 50px;
+    font-weight: 900;
+    color:#708742;
+    /* border: none; */
+    border: 1px solid #708742;
+    background-color: white;
+    box-shadow: 6px 6px #000;;
+
+}
+
+.back-button:hover {
+    background-color: #708742;
+    color: white;
+}
+
 .controls {
     width: 100vw;
     height: 40vh;
@@ -148,8 +175,8 @@ button {
 
 .controls-button {
     padding: 14px 50px;
-    font-weight: 900;
-    color: #708742;
+     font-weight: 900;
+    color:#708742;
     /* border: none; */
     border: 1px solid #708742;
     background-color: transparent;
@@ -167,3 +194,20 @@ button {
         font-size: 1rem;
     }
 } */
+
+.settings-tab {
+    height: 100vh;
+}
+
+.settings-top-bar {
+    display: flex;
+    justify-content: center;
+    margin-top: 7rem;
+    gap: 7rem;
+    /* background-color: pink; */
+    /* height: 5rem; */
+}
+
+.back {
+    
+}
