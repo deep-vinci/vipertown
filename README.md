@@ -1,1 +1,4 @@
-### [Live demo](https://deep-vinci.github.io/vipertown/)
+# Vipertown
+
+Vipertown is a 2d game written in Javascript with simple gameplay, which makes it relaxing to play. 
+
