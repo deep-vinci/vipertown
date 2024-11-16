@@ -10,6 +10,9 @@
     src: url('assets/PressStart2P-Regular.ttf');
 }
 
+/* body {
+    height: 100vh;
+} */
 body {
     background-color: #fafff0;
     font-family: PressStart2P-Regular;
@@ -244,6 +247,17 @@ button {
     left: 1.5rem;
 }
 
+.made-by {
+    position: absolute;
+    bottom: 1rem;
+    left: 1rem;
+}
+
+.made-by a {
+    color: #708742;
+    text-decoration: none;
+    text-shadow: 0.5px 0.5px #000;
+}
 
 .back {
     
