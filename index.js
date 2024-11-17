@@ -24,13 +24,13 @@ let input = {
 };
 
 let settingsConfig = {
-    difficulty: "x05"
+    difficulty: localStorage.getItem("difficulty") ? localStorage.getItem("difficulty") : "x05"
 }
 
 let difficultyConfig = {
-    x05: 800,
-    x1: 500,
-    x15: 100,
+    x05: 400,
+    x1: 200,
+    x15: 120,
 }
 
 let viper, viperFood, width = 27, lastLocation = [0, 0], currentInput = null;
@@ -41,9 +41,9 @@ gameBoard.style.gap = "2px";
 
 restartGame.style.display = "none";
 
-homeTab.style.display = "block";
+homeTab.style.display = "none";
 settingsTab.style.display = "none";
-gameTab.style.display = "none";
+gameTab.style.display = "block";
 
 // homeTab.style.display = "none";
 
@@ -250,7 +250,11 @@ document.addEventListener("keydown", (event) => {
 })
 
 restartGame.addEventListener("click", () => {
-    location.reload()   
+    location.reload();
+    // gamefunction()
+    // clearInterval(interval)
+    // interval = setInterval(gamefunction, difficultyConfig[settingsConfig.difficulty])
+
 })
 
 playGameButton.addEventListener("click", () => {
@@ -297,6 +301,7 @@ speedButtons.forEach(e => {
     e.addEventListener("click", () => {
         let currentSpeedChoice = document.querySelector(`#${e.id}`);
         settingsConfig.difficulty = e.id;
+        localStorage.setItem("difficulty", e.id);
         clearInterval(interval)
         interval = setInterval(gamefunction, difficultyConfig[settingsConfig.difficulty]);
 
