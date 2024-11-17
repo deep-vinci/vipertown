@@ -28,9 +28,9 @@ let settingsConfig = {
 }
 
 let difficultyConfig = {
-    x05: 100,
+    x05: 800,
     x1: 500,
-    x15: 200,
+    x15: 100,
 }
 
 let viper, viperFood, width = 27, lastLocation = [0, 0], currentInput = null;
@@ -129,7 +129,7 @@ const checkIfFoodPresent = (viperHead, viperFood) => {
 paintFood();
 viper = [generateArrayOfTwoRandomInt()];
 
-const interval = setInterval(() => {
+const gamefunction = () => {
 
 
     // console.log(viper)
@@ -232,7 +232,9 @@ const interval = setInterval(() => {
     paintViper(viper);
 
 
-}, difficultyConfig[settingsConfig.difficulty])
+}
+
+let interval = setInterval(gamefunction, difficultyConfig[settingsConfig.difficulty])
 
 console.log(difficultyConfig[settingsConfig.difficulty])
 document.addEventListener("keydown", (event) => {
@@ -289,7 +291,9 @@ speedButtons.forEach(e => {
     e.addEventListener("click", () => {
         let currentSpeedChoice = document.querySelector(`#${e.id}`);
         settingsConfig.difficulty = e.id;
-        // clearInterval(interval)
+        clearInterval(interval)
+        interval = setInterval(gamefunction, difficultyConfig[settingsConfig.difficulty]);
+
         speedButtons.forEach(k => {
             Object.assign(k.style, {
                 backgroundColor: "white",
