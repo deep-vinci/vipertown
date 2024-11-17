@@ -9,6 +9,10 @@ const settingsButton = document.querySelector(".settings");
 const settingsBackButton = document.querySelector(".settings-back-button");
 const gameBackButton = document.querySelector(".game-back-button");
 
+const settingsChoice05x = document.querySelector(".x05")
+const settingsChoice1x = document.querySelector(".x1")
+const settingsChoice5x = document.querySelector(".x15")
+
 const gameBoard = document.querySelector(".game-board");
 const score = document.querySelector(".score span");
 const topScore = document.querySelector(".top-score span")
@@ -22,6 +26,16 @@ let input = {
     right: "d",
     none: null
 };
+
+let settingsConfig = {
+    difficulty: "x05"
+}
+
+let difficultyConfig = {
+    x05: 1000,
+    x1: 500,
+    x15: 200,
+}
 
 let viper, viperFood, width = 27, lastLocation = [0, 0], currentInput = null;
 
@@ -261,4 +275,26 @@ gameBackButton.addEventListener("click", () => {
     gameTab.style.display = "none";
     homeTab.style.display = "block";
     settingsTab.style.display = "none";
+})
+
+// settings config code
+
+
+let choiceOfSpeedButton = document.querySelector(`#${settingsConfig.difficulty}`);
+let speedButtons = document.querySelectorAll(".speed-buttons");
+
+Object.assign(choiceOfSpeedButton.style, {
+    backgroundColor: "#708742",
+    color: "white"
+})
+
+speedButtons.forEach(e => {
+    e.addEventListener("click", () => {
+        let currentSpeedChoice = document.querySelector(`#${e.id}`);
+        
+        Object.assign(currentSpeedChoice.style, {
+            backgroundColor: "#708742",
+            color: "white"
+        })
+    })
 })
