@@ -41,8 +41,8 @@ button {
     position: absolute;
 }
 .cell {
-    width: 1vw;
-    height: 1vw;
+    width: 15px;
+    height: 15px;
     gap: 2px;
     /* border-radius: 5px; */
     /* color:#f0f7e1; */
@@ -65,6 +65,14 @@ button {
         text-shadow: 7px 7px #000;
     }
     
+    .home-tab h1 {
+            font-size: 1rem;
+            text-align: center;
+            color: #708742;
+            margin-top: 7rem;
+            letter-spacing: 0.8rem;
+            text-shadow: 7px 7px #000;
+    }
     
     
     
@@ -145,10 +153,12 @@ button {
         font-size: 3.5rem;
         text-align: center;
         color: #708742;
-        margin-top: 7rem;
+        padding-top: 7rem;
         letter-spacing: 0.8rem;
         text-shadow: 7px 7px #000;
     }
+
+    height: 100vh;
 }
 
 .settings-tab {

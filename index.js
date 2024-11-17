@@ -41,9 +41,9 @@ gameBoard.style.gap = "2px";
 
 restartGame.style.display = "none";
 
-homeTab.style.display = "none";
+homeTab.style.display = "block";
 settingsTab.style.display = "none";
-gameTab.style.display = "block";
+gameTab.style.display = "none";
 
 // homeTab.style.display = "none";
 
