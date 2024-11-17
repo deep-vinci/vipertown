@@ -268,12 +268,18 @@ settingsBackButton.addEventListener("click", () => {
     gameTab.style.display = "none";
     homeTab.style.display = "block";
     settingsTab.style.display = "none";
+    
 })
 
 gameBackButton.addEventListener("click", () => {
+    
+    // clearInterval(interval)
+    // interval = setInterval(gamefunction, difficultyConfig[settingsConfig.difficulty]);
+
     gameTab.style.display = "none";
     homeTab.style.display = "block";
     settingsTab.style.display = "none";
+
 })
 
 // settings config code
