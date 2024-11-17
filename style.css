@@ -223,6 +223,20 @@ button {
     margin-top: 7rem;
     display: flex;
     justify-content: center;
+    gap: 2rem;
+}
+
+.option-text {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.option-choice {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
 }
 
 .speed {
@@ -231,7 +245,7 @@ button {
     align-items: center;
 }
 
-.speed button {
+.settings-options button {
     padding: 10px 10px;
     font-weight: 900;
     color:#708742;
@@ -256,7 +270,7 @@ button {
 .made-by a {
     color: #708742;
     text-decoration: none;
-    text-shadow: 0.5px 0.5px #000;
+    /* text-shadow: 0.5px 0.5px #000; */
 }
 
 .back {
