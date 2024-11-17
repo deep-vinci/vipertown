@@ -9,10 +9,6 @@ const settingsButton = document.querySelector(".settings");
 const settingsBackButton = document.querySelector(".settings-back-button");
 const gameBackButton = document.querySelector(".game-back-button");
 
-const settingsChoice05x = document.querySelector(".x05")
-const settingsChoice1x = document.querySelector(".x1")
-const settingsChoice5x = document.querySelector(".x15")
-
 const gameBoard = document.querySelector(".game-board");
 const score = document.querySelector(".score span");
 const topScore = document.querySelector(".top-score span")
@@ -32,7 +28,7 @@ let settingsConfig = {
 }
 
 let difficultyConfig = {
-    x05: 1000,
+    x05: 100,
     x1: 500,
     x15: 200,
 }
@@ -236,8 +232,9 @@ const interval = setInterval(() => {
     paintViper(viper);
 
 
-}, 150)
+}, difficultyConfig[settingsConfig.difficulty])
 
+console.log(difficultyConfig[settingsConfig.difficulty])
 document.addEventListener("keydown", (event) => {
     if (event.key == "w" || event.key == "ArrowUp") {
         currentInput = "w";
@@ -291,7 +288,14 @@ Object.assign(choiceOfSpeedButton.style, {
 speedButtons.forEach(e => {
     e.addEventListener("click", () => {
         let currentSpeedChoice = document.querySelector(`#${e.id}`);
-        
+        settingsConfig.difficulty = e.id;
+        // clearInterval(interval)
+        speedButtons.forEach(k => {
+            Object.assign(k.style, {
+                backgroundColor: "white",
+                color: "#708742"
+            })
+        })
         Object.assign(currentSpeedChoice.style, {
             backgroundColor: "#708742",
             color: "white"
