@@ -24,6 +24,6 @@ for(let i = 0; i < backgroundCanvasWidth; i++) {
 backgroundCanvas.style.gridTemplateColumns = `repeat(${backgroundCanvasWidth}, 1fr)`;
 backgroundCanvas.style.gridTemplateRows = `repeat(${backgroundCanvasWidth}, 1fr)`;
 
-
-    // cellBg.style.width = `40px`;
-    // cellBg.style.height = `40px`;
+const backgroundGame = () => {
+    
+}

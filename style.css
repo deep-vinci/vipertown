@@ -41,8 +41,8 @@ button {
     position: absolute;
 }
 .cell {
-    width: 15px;
-    height: 15px;
+    width: 18px;
+    height: 18px;
     gap: 2px;
     /* border-radius: 5px; */
     /* color:#f0f7e1; */
