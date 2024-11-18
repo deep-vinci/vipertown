@@ -9,9 +9,9 @@ console.log(height, width); // 711 1440
 let backgroundCanvas = document.querySelector(".background-home");
 let cellBg = document.querySelector(".cell-bg");
 
-
-for(let i = 0; i < 10; i++) {
-    for(let j = 0; j < 10; j++) {
+let backgroundCanvasWidth = 40;
+for(let i = 0; i < backgroundCanvasWidth; i++) {
+    for(let j = 0; j < backgroundCanvasWidth; j++) {
         let cell = document.createElement("div");
         cell.classList.add("cell-bg");
         cell.id = `${j},${i}-bg`;    
@@ -21,8 +21,8 @@ for(let i = 0; i < 10; i++) {
 
 }
 
-backgroundCanvas.style.gridTemplateColumns = `repeat(10, 1fr)`;
-backgroundCanvas.style.gridTemplateRows = `repeat(10, 1fr)`;
+backgroundCanvas.style.gridTemplateColumns = `repeat(${backgroundCanvasWidth}, 1fr)`;
+backgroundCanvas.style.gridTemplateRows = `repeat(${backgroundCanvasWidth}, 1fr)`;
 
 
     // cellBg.style.width = `40px`;
