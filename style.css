@@ -48,36 +48,6 @@ button {
     /* color:#f0f7e1; */
 }    
 
-@media (max-width:430px)  { 
-    .cell {
-        width: 3vw;
-        height: 3vw;
-        gap: 2px;
-    
-    }
-
-    .home {
-        font-size: 0.2rem;
-        text-align: center;
-        color: #708742;
-        margin-top: 7rem;
-        letter-spacing: 0.8rem;
-        text-shadow: 7px 7px #000;
-    }
-    
-    .home-tab h1 {
-            font-size: 1rem;
-            text-align: center;
-            color: #708742;
-            margin-top: 7rem;
-            letter-spacing: 0.8rem;
-            text-shadow: 7px 7px #000;
-    }
-    
-    
-    
- }
-
 
 .cell-dark {
     background-color: #cdea94;
@@ -306,4 +276,39 @@ button {
 .cell-bg:hover {
     background-color: red;
 }
+/* 
+.char-of-vipertown {
+    transform: rotate(90deg);  
+} */
 
+@media (max-width:430px)  { 
+    .cell {
+        width: 3vw;
+        height: 3vw;
+        gap: 2px;
+    
+    }
+
+    /* .home {
+        font-size: 0.2rem;
+        text-align: center;
+        color: #708742;
+        margin-top: 7rem;
+        letter-spacing: 0.8rem;
+        text-shadow: 7px 7px #000;
+    } */
+    
+    .home-tab h1 {
+            font-size: 2rem;
+            text-align: center;
+            color: #708742;
+            margin-top: 7rem;
+            letter-spacing: 0.3rem;
+            text-shadow: 4px 4px #000;
+    }
+    
+    .background-container {
+        display: none;
+    }
+    
+}
