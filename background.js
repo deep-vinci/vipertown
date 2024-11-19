@@ -1,13 +1,10 @@
-// window height
 const height = window.innerHeight;
-
-// window width
 const width = window.innerWidth;
 
-console.log(height, width); // 711 1440
 
 let backgroundCanvas = document.querySelector(".background-home");
 let cellBg = document.querySelector(".cell-bg");
+let style = document.querySelector("style");
 
 let backgroundCanvasWidth = 40;
 for(let i = 0; i < backgroundCanvasWidth; i++) {
@@ -16,7 +13,12 @@ for(let i = 0; i < backgroundCanvasWidth; i++) {
         cell.classList.add("cell-bg");
         cell.id = `${j},${i}-bg`;    
         cell.style.backgroundColor = `rgba(218, 237, 181, ${Math.random().toFixed(1)})`
-
+        
+        style.textContent += `
+        .cell-bg:hover {
+            background-color: red;
+        }
+        `
         backgroundCanvas.appendChild(cell)
     }
 

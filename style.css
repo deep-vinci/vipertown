@@ -303,6 +303,7 @@ button {
     /* text-shadow: 0.5px 0.5px #000; */
 }
 
-.back {
-    
+.cell-bg:hover {
+    background-color: red;
 }
+
