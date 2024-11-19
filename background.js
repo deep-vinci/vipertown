@@ -15,6 +15,7 @@ for(let i = 0; i < backgroundCanvasWidth; i++) {
         let cell = document.createElement("div");
         cell.classList.add("cell-bg");
         cell.id = `${j},${i}-bg`;    
+        cell.style.backgroundColor = `rgba(218, 237, 181, ${Math.random().toFixed(1)})`
 
         backgroundCanvas.appendChild(cell)
     }

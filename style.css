@@ -204,22 +204,19 @@ button {
     /* background-color: red; */
 }
 
-.controls-button {
-    width: 250px;
-}
-
 .controls-button:hover {
     background-color: #708742;
     color: white;
 }
 
 .controls-button {
+    width: 250px;
     padding: 14px 50px;
      font-weight: 900;
     color:#708742;
     /* border: none; */
     border: 1px solid #708742;
-    background-color: transparent;
+    background-color: rgba(218, 237, 181, 1);
     box-shadow: 6px 6px #000;;
 }
 
