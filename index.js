@@ -79,13 +79,7 @@ const ateFood = () => {
 
 const paintViper = (viper) => {
     viper.forEach(viperCell => {
-        // let v = document.createElement("div");
-        // v.setAttribute("id", `${viperCell.toString()}_`);
-        // v.classList.add("viper")
-        // let c = document.getElementById(viperCell.toString());
-        // c.appendChild(v);
-
-        document.getElementById(viperCell.toString()).style.backgroundColor = colorScheme.viper;
+ document.getElementById(viperCell.toString()).style.backgroundColor = colorScheme.viper;
     })
 } 
 
